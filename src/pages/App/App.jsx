@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Redirect, Route, Switch, useHistory } from "react-router-dom";
 import { getUser } from "../../utilities/users-service";
 import AuthPage from "../AuthPage/AuthPage";
+import NavBar from "../../components/User/NavBar/NavBar";
 import UserProfilePage from '../User/UserProfilePage/UserProfilePage';
 
 
@@ -13,7 +14,7 @@ function App() {
     <main className="App">
       {user ? (
         <>
-        {/* <NavBar user={user} setUser={setUser} /> */}
+        <NavBar user={user} setUser={setUser} />
         <Switch>
           {/* <Route path="/puppies/new">
             <NewPuppyPage
