@@ -1,24 +1,50 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import { Redirect, Route, Switch, useHistory } from "react-router-dom";
+import { getUser } from "../../utilities/users-service";
+import AuthPage from "../AuthPage/AuthPage";
+import UserProfilePage from '../User/UserProfilePage/UserProfilePage';
+
 
 function App() {
+  const [user, setUser] = useState(getUser())
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="App">
+      {user ? (
+        <>
+        {/* <NavBar user={user} setUser={setUser} /> */}
+        <Switch>
+          {/* <Route path="/puppies/new">
+            <NewPuppyPage
+              user={user}
+              setUser={setUser}
+              handleAddPuppy={handleAddPuppy}
+            />
+          </Route>
+          <Route path="/puppies">
+            <Puppies
+              puppies={puppies}
+              handleDeletePuppy={handleDeletePuppy}
+            />
+          </Route>
+          <Route exact path="/details">
+            <PuppyDetailPage />
+          </Route>
+          <Route exact path="/edit">
+            <EditPuppyPage handleUpdatePuppy={handleUpdatePuppy} />
+          </Route>
+          <Redirect to="/puppies" /> */}
+          <Route path='/profile/:id'>
+            <UserProfilePage />
+          </Route>
+        </Switch>
+      </>
+
+      ) : (
+        <AuthPage setUser={setUser} />
+      )}
+    </main>
   );
 }
 
