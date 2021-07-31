@@ -15,7 +15,7 @@ const GameListItem = ({ gameItem, handleDeleteGame }) => {
               }}
             >
               Details
-            </Link>
+            </Link> */}
             <Link
               to={{
                 pathname: "/edit",
@@ -23,7 +23,7 @@ const GameListItem = ({ gameItem, handleDeleteGame }) => {
               }}
             >
               &nbsp;Edit
-            </Link> */}
+            </Link>
             <button onClick={() => handleDeleteGame(gameItem._id)}>
               &nbsp;Delete
             </button>

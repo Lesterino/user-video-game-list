@@ -73,7 +73,7 @@ const AddGamePage = ({ handleAddGame }) => {
           
           </select>
         </div>
-        <button type="submit" className="btn" disabled={invalidForm}>
+        <button type="submit" disabled={invalidForm}>
           ADD GAME
         </button>
       </form>

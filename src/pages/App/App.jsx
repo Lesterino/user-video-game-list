@@ -7,10 +7,13 @@ import NavBar from "../../components/User/NavBar/NavBar";
 import UserProfilePage from "../User/UserProfilePage/UserProfilePage";
 import AddGamePage from "../Game/AddGamePage/AddGamePage";
 import AllGamesPage from "../Game/AllGamesPage/AllGamesPage";
+import EditGamePage from "../Game/EditGamePage/EditGamePage";
 import * as gamesAPI from "../../utilities/games-api";
 function App() {
   const [user, setUser] = useState(getUser());
   const [games, setGames] = useState([]);
+
+  const history = useHistory();
 
   useEffect(() => {
     const getGames = async () => {
@@ -22,18 +25,22 @@ function App() {
     getGames();
   }, []);
 
+  useEffect(() => {
+    history.push("/");
+  }, [games, history]);
+
   const handleAddGame = async (newGameData) => {
     const newGame = await gamesAPI.create(newGameData);
     setGames([...games, newGame]);
   };
 
-  // const handleUpdateGame = async (updatedGameData) => {
-  //   const updatedGame = await gamesAPI.update(updatedGameData);
-  //   const newGamesArray = games.map((g) =>
-  //     g._id === updatedGame._id ? updatedGame : g
-  //   );
-  //   setGames(newGamesArray);
-  // };
+  const handleUpdateGame = async (updatedGameData) => {
+    const updatedGame = await gamesAPI.update(updatedGameData);
+    const newGamesArray = games.map((g) =>
+      g._id === updatedGame._id ? updatedGame : g
+    );
+    setGames(newGamesArray);
+  };
 
   const handleDeleteGame = async (id) => {
     await gamesAPI.deleteOne(id);
@@ -54,11 +61,11 @@ function App() {
             </Route>
             {/*<Route exact path="/details">
             <DetailGamePage />
-          </Route>
-          /*<Route exact path="/edit">
-            <EditGamePage handleUpdateGame={handleUpdateGame} />
-          </Route>
-          <Redirect to="/puppies" /> */}
+            </Route> */}
+            <Route exact path="/edit">
+              <EditGamePage handleUpdateGame={handleUpdateGame} />
+            </Route>
+            {/* <Redirect to="/puppies" /> */}
             <Route path="/profile/:id">
               <UserProfilePage />
             </Route>
