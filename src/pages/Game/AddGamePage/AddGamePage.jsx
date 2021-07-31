@@ -1,10 +1,20 @@
 import React, { useState, useRef, useEffect } from "react";
 
+const genreEnum = [
+  "Action",
+  "Adventure",
+  "RPG",
+  "Simulation",
+  "Strategy",
+  "Sports",
+  "MMO",
+];
+
 const AddGamePage = ({ handleAddGame }) => {
   const [invalidForm, setValidForm] = useState(true);
   const [newGame, setNewGame] = useState({
-    title: '',
-    genre: 'Action',
+    title: "",
+    genre: "",
   });
 
   const formRef = useRef();
@@ -19,12 +29,20 @@ const AddGamePage = ({ handleAddGame }) => {
     setNewGame(newGame);
   };
 
-  const handleChange = (e) => {
+  const handleChangeInput = (e) => {
     setNewGame({
       ...newGame,
       [e.target.title]: e.target.value,
     });
   };
+  
+  const handleChangeSelect = (e) => {
+    setNewGame({
+      ...newGame,
+      genre: e.target.value,
+    });
+  };
+  
 
   return (
     <>
@@ -32,25 +50,27 @@ const AddGamePage = ({ handleAddGame }) => {
       <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
         <div>
           <label>Game Title</label>
-          <input title="title" value={newGame.title} onChange={handleChange} required />
+          <input
+            title="title"
+            value={newGame.title}
+            onChange={handleChangeInput}
+            required
+          />
         </div>
         <div>
           <label>Game Genre</label>
-          {/* <input
-            className="form-control"
-            name="genre"
-            value={newGame.genre}
-            onChange={handleChange}
-            required
-          /> */}
-          <select genre="genre" onChange={handleChange}>
-            <option value="Action">Action</option>
-            <option value="Adventure">Adventure</option>
-            <option value="RPG">RPG</option>
-            <option value="Simulation">Simulation</option>
-            <option value="Strategy">Strategy</option>
-            <option value="Sports">Sports</option>
-            <option value="MMO">MMO</option>
+          <select genre="genre" value={newGame.genre} onChange={handleChangeSelect}>
+            {/* {genreEnum.forEach((genre) => {
+              <option value={genre}>{genre}</option>
+            })}; */}
+              <option value='Action'>Action</option>;
+              <option value='Adventure'>Adventure</option>;
+              <option value='RPG'>RPG</option>;
+              <option value='Simulation'>Simulation</option>;
+              <option value='Strategy'>Strategy</option>;
+              <option value='Sports'>Sports</option>;
+              <option value='MMO'>MMO</option>;
+          
           </select>
         </div>
         <button type="submit" className="btn" disabled={invalidForm}>
