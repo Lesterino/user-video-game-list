@@ -1,14 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 
-const genreEnum = [
-  "Action",
-  "Adventure",
-  "RPG",
-  "Simulation",
-  "Strategy",
-  "Sports",
-  "MMO",
-];
+// const genreEnum = [
+//   "Action",
+//   "Adventure",
+//   "RPG",
+//   "Simulation",
+//   "Strategy",
+//   "Sports",
+//   "MMO",
+// ];
 
 const AddGamePage = ({ handleAddGame }) => {
   const [invalidForm, setValidForm] = useState(true);
