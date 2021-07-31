@@ -18,9 +18,7 @@ function App() {
 
   useEffect(() => {
     const getGames = async () => {
-      // retreive the puppies data
       const games = await gamesAPI.getAll();
-      // set it to state
       setGames(games);
     };
     getGames();
@@ -66,7 +64,6 @@ function App() {
             <Route exact path="/edit">
               <EditGamePage handleUpdateGame={handleUpdateGame} />
             </Route>
-            {/* <Redirect to="/puppies" /> */}
             <Route path="/profile/:id">
               <UserProfilePage />
             </Route>

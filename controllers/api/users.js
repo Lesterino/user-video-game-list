@@ -31,6 +31,18 @@ const login = async(req, res) => {
     }
 }
 
+const show = async (req, res) => {
+    try {
+      console.log("before show");
+      const user = await User.findById(req.params.id);
+      console.log("after show");
+      res.json(user);
+    } catch {
+      console.log("failed to execute show function");
+      res.status(400);
+    }
+  };
+
 const createJWT = (user) => {
     return jwt.sign (
         {user},
@@ -47,5 +59,6 @@ const checkToken = (req, res) => {
 module.exports = {
     create,
     login,
-    checkToken
+    checkToken,
+    show
 }

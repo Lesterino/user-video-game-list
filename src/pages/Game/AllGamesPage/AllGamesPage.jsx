@@ -1,4 +1,3 @@
-// import * as usersService from "../../../utilities/users-service";
 import GamesList from "../../../components/Games/GamesList/GamesList";
 
 const AllGamesPage = ({ games, handleDeleteGame }) => {
