@@ -8,6 +8,7 @@ import UserProfilePage from "../User/UserProfilePage/UserProfilePage";
 import AddGamePage from "../Game/AddGamePage/AddGamePage";
 import AllGamesPage from "../Game/AllGamesPage/AllGamesPage";
 import EditGamePage from "../Game/EditGamePage/EditGamePage";
+import DetailGamePage from "../Game/DetailGamePage/DetailGamePage"
 import * as gamesAPI from "../../utilities/games-api";
 function App() {
   const [user, setUser] = useState(getUser());
@@ -59,9 +60,9 @@ function App() {
             <Route path="/games">
               <AllGamesPage games={games} handleDeleteGame={handleDeleteGame} />
             </Route>
-            {/*<Route exact path="/details">
+            <Route exact path="/details">
             <DetailGamePage />
-            </Route> */}
+            </Route>
             <Route exact path="/edit">
               <EditGamePage handleUpdateGame={handleUpdateGame} />
             </Route>
