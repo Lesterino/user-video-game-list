@@ -8,7 +8,7 @@ router.post('/', usersCtrl.create);
 router.post('/login', usersCtrl.login);
 router.get('/:userId', usersCtrl.show);
 router.get(':userId/logs', logsCtrl.index);
-router.post(':userId/logs/newlog', logsCtrl.create);
+router.post('/logs', logsCtrl.create);
 router.get('/:userId/logs/:logId', logsCtrl.show);
 
 router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken); 

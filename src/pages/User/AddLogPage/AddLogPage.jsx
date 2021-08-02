@@ -1,15 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 
-const ratingArr = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+const ratingArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
-
-const AddLogPage = ({ handleAddLog }) => {
+const AddLogPage = ({ handleAddLog, games, user }) => {
   const [invalidForm, setValidForm] = useState(true);
   const [newLog, setNewLog] = useState({
-    game: {},
-    rating: 0,
+    game: games[0],
+    rating: "1",
     review: "",
-    user: {}
+    user: user,
   });
 
   const formRef = useRef();
@@ -24,17 +23,24 @@ const AddLogPage = ({ handleAddLog }) => {
     setNewLog(newLog);
   };
 
-  const handleChangeInput = (e) => {
+  const handleChangeGame = (e) => {
     setNewLog({
       ...newLog,
-      [e.target.game]: e.target.value,
+      game: e.target.value,
     });
   };
 
-  const handleChangeSelect = (e) => {
+  const handleChangeRating = (e) => {
     setNewLog({
       ...newLog,
       rating: e.target.value,
+    });
+  };
+
+  const handleChangeReview = (e) => {
+    setNewLog({
+      ...newLog,
+      review: e.target.value,
     });
   };
 
@@ -44,27 +50,41 @@ const AddLogPage = ({ handleAddLog }) => {
       <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
         <div>
           <label>Game</label>
-          <input
+          <select
             game="game"
             value={newLog.game}
-            onChange={handleChangeInput}
+            onChange={handleChangeGame}
             required
-          />
+          >
+            {games.map((game) => {
+              return <option value={game}>{game.title}</option>;
+            })}
+          </select>
         </div>
         <div>
           <label>Rating</label>
           <select
             rating="rating"
             value={newLog.rating}
-            onChange={handleChangeSelect}
+            onChange={handleChangeRating}
+            required
           >
             {ratingArr.map((rating) => {
               return <option value={rating}>{rating}</option>;
             })}
           </select>
         </div>
+        <div>
+          <label>Review:</label>
+          <input
+            review="review"
+            value={newLog.review}
+            onChange={handleChangeReview}
+          />
+        </div>
+        <input type="hidden" user="user" value={newLog.user} />
         <button type="submit" disabled={invalidForm}>
-          ADD GAME
+          ADD LOG
         </button>
       </form>
     </>

@@ -55,6 +55,11 @@ function App() {
     setLogs([...logs, newLog]);
   };
 
+  const handleDeleteLog = async (id) => {
+    await logsAPI.deleteOne(id);
+    setLogs(logs.filter((log) => log._id !== id));
+  };
+
   return (
     <main className="App">
       {user ? (
@@ -74,10 +79,18 @@ function App() {
               <EditGamePage handleUpdateGame={handleUpdateGame} />
             </Route>
             <Route path="/user/">
-              <UserProfilePage />
+              <UserProfilePage
+                handleDeleteLog={handleDeleteLog}
+                user={user}
+                logs={logs}
+              />
             </Route>
-            <Route path="/:userId/logs/newlog">
-              <AddLogPage handleAddLog={handleAddLog} />
+            <Route exact path="/:userId/logs/newlog">
+              <AddLogPage
+                handleAddLog={handleAddLog}
+                games={games}
+                user={user}
+              />
             </Route>
           </Switch>
         </>

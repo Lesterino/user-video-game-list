@@ -6,13 +6,8 @@ const logSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Game",
   },
-  rating: {
-    type: String,
-    enum: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-  },
-  review: {
-    type: String,
-  },
+  rating: String,
+  review: String,
   user: {
       type: Schema.Types.ObjectId,
       ref: "User",

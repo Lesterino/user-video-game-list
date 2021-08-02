@@ -1,12 +1,14 @@
 import { sendRequest } from "./sendRequest"
 const BASE_URL = '/api/user/logs'
 
+// :userId/logs/newlog
+
 export function getAll() {
     return sendRequest(BASE_URL);
   }
   
   export function create(log) {
-    return sendRequest(BASE_URL, "POST", log);
+    return sendRequest(`${BASE_URL}`, "POST", log);
   }
   
   export function update(log) {
@@ -14,5 +16,5 @@ export function getAll() {
   }
   
   export function deleteOne(id) {
-    return sendRequest(`${BASE_URL}/${id}`, "DELETE")
+    return sendRequest(`${BASE_URL}/${id}`, "DELETE");
   }

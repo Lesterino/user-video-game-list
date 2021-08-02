@@ -1,10 +1,16 @@
-const LogsUser = (props) => {
-    return (
-        <>
-        <h1>LogsUser</h1>
-        </>
+import UserLogItem from "../UserLogItem/UserLogItem"
 
-    )
+const UserLogs = ({handleDeleteLog, logs}) => {
+    const logsList = logs.map((log) => {
+        return (
+            <UserLogItem 
+            handleDeleteLog={handleDeleteLog}
+            key={log._id}
+            logItem={log}
+            />
+        );
+    });
+    return <main>{logsList}</main>;
 }
 
-export default LogsUser;
+export default UserLogs;

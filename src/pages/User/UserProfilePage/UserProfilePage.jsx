@@ -3,13 +3,13 @@ import UserLogs from "../../../components/User/UserLogs/UserLogs"
 import { Link } from "react-router-dom";
 
 
-const UserProfilePage = (props) => {
+const UserProfilePage = ({handleDeleteLog, logs, user}) => {
     return (
       <main>
         <h1>Profile</h1>
         <Link to=":userId/logs/newlog">New Log</Link> 
-        <UserData />
-        <UserLogs />
+        <UserData user={user} />
+        <UserLogs handleDeleteLog={handleDeleteLog} logs={logs} />
 
       </main>
     );
