@@ -1,20 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 
-const genreEnum = [
-  "Action",
-  "Adventure",
-  "RPG",
-  "Simulation",
-  "Strategy",
-  "Sports",
-  "MMO",
-];
+const ratingArr = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
 
-const AddGamePage = ({ handleAddGame }) => {
+
+const AddLogPage = ({ handleAddLog }) => {
   const [invalidForm, setValidForm] = useState(true);
-  const [newGame, setNewGame] = useState({
-    title: "",
-    genre: "",
+  const [newLog, setNewLog] = useState({
+    game: {},
+    rating: 0,
+    review: "",
+    user: {}
   });
 
   const formRef = useRef();
@@ -25,46 +20,46 @@ const AddGamePage = ({ handleAddGame }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleAddGame(newGame);
-    setNewGame(newGame);
+    handleAddLog(newLog);
+    setNewLog(newLog);
   };
 
   const handleChangeInput = (e) => {
-    setNewGame({
-      ...newGame,
-      [e.target.title]: e.target.value,
+    setNewLog({
+      ...newLog,
+      [e.target.game]: e.target.value,
     });
   };
 
   const handleChangeSelect = (e) => {
-    setNewGame({
-      ...newGame,
-      genre: e.target.value,
+    setNewLog({
+      ...newLog,
+      rating: e.target.value,
     });
   };
 
   return (
     <>
-      <h1>Add Game</h1>
+      <h1>Add Log</h1>
       <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
         <div>
-          <label>Game Title</label>
+          <label>Game</label>
           <input
-            title="title"
-            value={newGame.title}
+            game="game"
+            value={newLog.game}
             onChange={handleChangeInput}
             required
           />
         </div>
         <div>
-          <label>Game Genre</label>
+          <label>Rating</label>
           <select
-            genre="genre"
-            value={newGame.genre}
+            rating="rating"
+            value={newLog.rating}
             onChange={handleChangeSelect}
           >
-            {genreEnum.map((genre) => {
-              return <option value={genre}>{genre}</option>;
+            {ratingArr.map((rating) => {
+              return <option value={rating}>{rating}</option>;
             })}
           </select>
         </div>
@@ -76,4 +71,4 @@ const AddGamePage = ({ handleAddGame }) => {
   );
 };
 
-export default AddGamePage;
+export default AddLogPage;

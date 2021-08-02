@@ -17,8 +17,8 @@ const NavBar = ({user, setUser}) => {
             <Link to="/games">All Games</Link>
             &nbsp; | &nbsp;
             <Link to="/games/new">Add Game</Link>
-            &nbsp; | &nbsp;
-            <Link to="/logs/new">New Log</Link>
+             &nbsp; {/*| &nbsp;
+            <Link to="':userId/logs/newlog'">New Log</Link> */}
         </nav>
     )
 }

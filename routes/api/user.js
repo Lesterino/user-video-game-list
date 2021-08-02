@@ -6,7 +6,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 router.post('/', usersCtrl.create);
 router.post('/login', usersCtrl.login);
-// change :userId to :userId
 router.get('/:userId', usersCtrl.show);
 router.get(':userId/logs', logsCtrl.index);
 router.post(':userId/logs/newlog', logsCtrl.create);

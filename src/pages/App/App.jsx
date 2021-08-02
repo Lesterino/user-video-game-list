@@ -8,11 +8,15 @@ import UserProfilePage from "../User/UserProfilePage/UserProfilePage";
 import AddGamePage from "../Game/AddGamePage/AddGamePage";
 import AllGamesPage from "../Game/AllGamesPage/AllGamesPage";
 import EditGamePage from "../Game/EditGamePage/EditGamePage";
-import DetailGamePage from "../Game/DetailGamePage/DetailGamePage"
+import DetailGamePage from "../Game/DetailGamePage/DetailGamePage";
+import AddLogPage from "../User/AddLogPage/AddLogPage";
 import * as gamesAPI from "../../utilities/games-api";
+import * as logsAPI from "../../utilities/logs-api";
+
 function App() {
   const [user, setUser] = useState(getUser());
   const [games, setGames] = useState([]);
+  const [logs, setLogs] = useState([]);
 
   const history = useHistory();
 
@@ -46,6 +50,11 @@ function App() {
     setGames(games.filter((game) => game._id !== id));
   };
 
+  const handleAddLog = async (newLogData) => {
+    const newLog = await logsAPI.create(newLogData);
+    setLogs([...logs, newLog]);
+  };
+
   return (
     <main className="App">
       {user ? (
@@ -59,13 +68,16 @@ function App() {
               <AllGamesPage games={games} handleDeleteGame={handleDeleteGame} />
             </Route>
             <Route exact path="/details">
-            <DetailGamePage />
+              <DetailGamePage />
             </Route>
             <Route exact path="/edit">
               <EditGamePage handleUpdateGame={handleUpdateGame} />
             </Route>
             <Route path="/user/">
               <UserProfilePage />
+            </Route>
+            <Route path="/:userId/logs/newlog">
+              <AddLogPage handleAddLog={handleAddLog} />
             </Route>
           </Switch>
         </>

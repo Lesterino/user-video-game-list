@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function GameDetail({ game }) {
+const GameDetail = ({ game }) => {
 	return (
 		<div>
 			<div>

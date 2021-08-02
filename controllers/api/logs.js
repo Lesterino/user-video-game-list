@@ -11,9 +11,8 @@ const index = async (req, res) => {
   };
   
   const show = async (req, res) => {
-      console.log(req.params);
     try {
-      const log = await Log.findById(req.params.id);
+      const log = await Log.findById(req.params.logId);
       res.json(log);
     } catch {
       console.log("failed to execute show function");

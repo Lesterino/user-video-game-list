@@ -1,16 +1,16 @@
 import { sendRequest } from "./sendRequest"
-const BASE_URL = '/api/games'
+const BASE_URL = '/api/user/logs'
 
 export function getAll() {
     return sendRequest(BASE_URL);
   }
   
-  export function create(game) {
-    return sendRequest(BASE_URL, "POST", game);
+  export function create(log) {
+    return sendRequest(BASE_URL, "POST", log);
   }
   
-  export function update(game) {
-    return sendRequest(`${BASE_URL}/${game._id}`, "PUT", game);
+  export function update(log) {
+    return sendRequest(`${BASE_URL}/${log._id}`, "PUT", log);
   }
   
   export function deleteOne(id) {
