@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Redirect, Route, Switch, useHistory } from "react-router-dom";
 import { getUser } from "../../utilities/users-service";
 import AuthPage from "../AuthPage/AuthPage";
-import NavBar from "../../components/User/NavBar/NavBar";
+import NavBar from "../../components/UI/NavBar/NavBar";
 import UserProfilePage from "../User/UserProfilePage/UserProfilePage";
 import AddGamePage from "../Game/AddGamePage/AddGamePage";
 import AllGamesPage from "../Game/AllGamesPage/AllGamesPage";
