@@ -4,12 +4,9 @@ const bcrypt = require('bcrypt');
 
 const create = async(req, res) => {
     try {
-        console.log('hit create')
         const user = await User.create(req.body);
-        console.log('user created')
         const token = createJWT(user);
         res.json(token);
-        console.log('token created and jsoned')
     } catch(err) {
         res.status(400).json(err);
     }
@@ -33,9 +30,7 @@ const login = async(req, res) => {
 
 const show = async (req, res) => {
     try {
-      console.log("before show");
       const user = await User.findById(req.params.id);
-      console.log("after show");
       res.json(user);
     } catch {
       console.log("failed to execute show function");

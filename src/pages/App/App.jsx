@@ -64,7 +64,7 @@ function App() {
             <Route exact path="/edit">
               <EditGamePage handleUpdateGame={handleUpdateGame} />
             </Route>
-            <Route path="/profile/:id">
+            <Route path="/user/">
               <UserProfilePage />
             </Route>
           </Switch>

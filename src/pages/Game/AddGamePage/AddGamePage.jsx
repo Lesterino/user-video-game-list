@@ -1,14 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 
-// const genreEnum = [
-//   "Action",
-//   "Adventure",
-//   "RPG",
-//   "Simulation",
-//   "Strategy",
-//   "Sports",
-//   "MMO",
-// ];
+const genreEnum = [
+  "Action",
+  "Adventure",
+  "RPG",
+  "Simulation",
+  "Strategy",
+  "Sports",
+  "MMO",
+];
 
 const AddGamePage = ({ handleAddGame }) => {
   const [invalidForm, setValidForm] = useState(true);
@@ -35,14 +35,13 @@ const AddGamePage = ({ handleAddGame }) => {
       [e.target.title]: e.target.value,
     });
   };
-  
+
   const handleChangeSelect = (e) => {
     setNewGame({
       ...newGame,
       genre: e.target.value,
     });
   };
-  
 
   return (
     <>
@@ -59,18 +58,21 @@ const AddGamePage = ({ handleAddGame }) => {
         </div>
         <div>
           <label>Game Genre</label>
-          <select genre="genre" value={newGame.genre} onChange={handleChangeSelect}>
-            {/* {genreEnum.forEach((genre) => {
-              <option value={genre}>{genre}</option>
-            })}; */}
-              <option value='Action'>Action</option>;
+          <select
+            genre="genre"
+            value={newGame.genre}
+            onChange={handleChangeSelect}
+          >
+            {genreEnum.map((genre) => {
+              return <option value={genre}>{genre}</option>;
+            })}
+            {/* <option value='Action'>Action</option>;
               <option value='Adventure'>Adventure</option>;
               <option value='RPG'>RPG</option>;
               <option value='Simulation'>Simulation</option>;
               <option value='Strategy'>Strategy</option>;
               <option value='Sports'>Sports</option>;
-              <option value='MMO'>MMO</option>;
-          
+              <option value='MMO'>MMO</option>; */}
           </select>
         </div>
         <button type="submit" disabled={invalidForm}>

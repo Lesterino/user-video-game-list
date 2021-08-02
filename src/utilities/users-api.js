@@ -1,5 +1,5 @@
 import { sendRequest } from "./sendRequest";
-const BASE_URL = '/api/users';
+const BASE_URL = '/api/user';
 
 export const signUp = async(userData) => {
 	return sendRequest(BASE_URL, 'POST', userData);

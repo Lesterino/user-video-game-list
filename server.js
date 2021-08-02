@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(require('./config/checkToken'));
 
-app.use('/api/users', require('./routes/api/users'));
+app.use('/api/user', require('./routes/api/user'));
 app.use('/api/games', require('./routes/api/games'));
 
 const port = process.env.PORT || 3001;

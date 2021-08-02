@@ -13,6 +13,10 @@ const logSchema = new Schema({
   review: {
     type: String,
   },
+  user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+  }
 });
 
 module.exports = mongoose.model("Log", logSchema);
