@@ -12,7 +12,7 @@ const LogListItem = ({ handleDeleteLog, logItem }) => {
                 
               <Link
                 to={{
-                  pathname: "/details",
+                  pathname: "/user/logs/details",
                   state: { logItem },
                 }}
               >
@@ -20,7 +20,7 @@ const LogListItem = ({ handleDeleteLog, logItem }) => {
               </Link>
               <Link
                 to={{
-                  pathname: "/edit",
+                  pathname: "/user/logs/edit",
                   state: { logItem },
                 }}
               >

@@ -22,6 +22,7 @@ const index = async (req, res) => {
   
   const create = async (req, res) => {
     try {
+      // req.body.user = req.user
       const newLog = await Log.create(req.body);
       res.status(201).json(newLog);
     } catch (err) {

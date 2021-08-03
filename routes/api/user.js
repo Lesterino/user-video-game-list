@@ -7,9 +7,11 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 router.post('/', usersCtrl.create);
 router.post('/login', usersCtrl.login);
 router.get('/:userId', usersCtrl.show);
-router.get(':userId/logs', logsCtrl.index);
+
+router.get('/logs'/* /api/user/logs */, logsCtrl.index);
 router.post('/logs', logsCtrl.create);
-router.get('/:userId/logs/:logId', logsCtrl.show);
+router.get('/logs/:logId', logsCtrl.show);
+router.put('/logs/:logId', logsCtrl.update);
 router.delete('/logs/:logId', logsCtrl.delete);
 
 router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
