@@ -1,6 +1,9 @@
-const DataUser = (props) => {
+const DataUser = ({ user }) => {
     return (
-        <h1>DataUser</h1>
+        <>
+        <h3>Email: {user.email}</h3>
+        <h3>Name: {user.name}</h3>
+        </>
     )
 }
 

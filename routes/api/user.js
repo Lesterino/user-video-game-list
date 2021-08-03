@@ -10,7 +10,8 @@ router.get('/:userId', usersCtrl.show);
 router.get(':userId/logs', logsCtrl.index);
 router.post('/logs', logsCtrl.create);
 router.get('/:userId/logs/:logId', logsCtrl.show);
+router.delete('/logs/:logId', logsCtrl.delete);
 
-router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken); 
+router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
 
 module.exports = router;

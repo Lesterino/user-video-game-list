@@ -14,7 +14,7 @@ const AddGamePage = ({ handleAddGame }) => {
   const [invalidForm, setValidForm] = useState(true);
   const [newGame, setNewGame] = useState({
     title: "",
-    genre: "",
+    genre: "Action",
   });
 
   const formRef = useRef();
@@ -29,17 +29,10 @@ const AddGamePage = ({ handleAddGame }) => {
     setNewGame(newGame);
   };
 
-  const handleChangeInput = (e) => {
+  const handleChange = (e) => {
     setNewGame({
       ...newGame,
-      [e.target.title]: e.target.value,
-    });
-  };
-
-  const handleChangeSelect = (e) => {
-    setNewGame({
-      ...newGame,
-      genre: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -50,18 +43,19 @@ const AddGamePage = ({ handleAddGame }) => {
         <div>
           <label>Game Title</label>
           <input
-            title="title"
+            name="title"
             value={newGame.title}
-            onChange={handleChangeInput}
+            onChange={handleChange}
             required
           />
         </div>
         <div>
           <label>Game Genre</label>
           <select
-            genre="genre"
+            name="genre"
             value={newGame.genre}
-            onChange={handleChangeSelect}
+            onChange={handleChange}
+            required
           >
             {genreEnum.map((genre) => {
               return <option value={genre}>{genre}</option>;

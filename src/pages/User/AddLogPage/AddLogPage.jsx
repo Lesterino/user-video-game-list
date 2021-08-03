@@ -5,7 +5,7 @@ const ratingArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 const AddLogPage = ({ handleAddLog, games, user }) => {
   const [invalidForm, setValidForm] = useState(true);
   const [newLog, setNewLog] = useState({
-    game: games[0],
+    game: games[0].title,
     rating: "1",
     review: "",
     user: user,
@@ -23,24 +23,10 @@ const AddLogPage = ({ handleAddLog, games, user }) => {
     setNewLog(newLog);
   };
 
-  const handleChangeGame = (e) => {
+  const handleChange = (e) => {
     setNewLog({
       ...newLog,
-      game: e.target.value,
-    });
-  };
-
-  const handleChangeRating = (e) => {
-    setNewLog({
-      ...newLog,
-      rating: e.target.value,
-    });
-  };
-
-  const handleChangeReview = (e) => {
-    setNewLog({
-      ...newLog,
-      review: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -51,22 +37,22 @@ const AddLogPage = ({ handleAddLog, games, user }) => {
         <div>
           <label>Game</label>
           <select
-            game="game"
+            name="game"
             value={newLog.game}
-            onChange={handleChangeGame}
+            onChange={handleChange}
             required
           >
             {games.map((game) => {
-              return <option value={game}>{game.title}</option>;
+              return <option value={game.title}>{game.title}</option>;
             })}
           </select>
         </div>
         <div>
           <label>Rating</label>
           <select
-            rating="rating"
+            name="rating"
             value={newLog.rating}
-            onChange={handleChangeRating}
+            onChange={handleChange}
             required
           >
             {ratingArr.map((rating) => {
@@ -77,12 +63,12 @@ const AddLogPage = ({ handleAddLog, games, user }) => {
         <div>
           <label>Review:</label>
           <input
-            review="review"
+            name="review"
             value={newLog.review}
-            onChange={handleChangeReview}
+            onChange={handleChange}
           />
         </div>
-        <input type="hidden" user="user" value={newLog.user} />
+        <input type="hidden" name="user" value={newLog.user} />
         <button type="submit" disabled={invalidForm}>
           ADD LOG
         </button>

@@ -9,7 +9,7 @@ const UserProfilePage = ({handleDeleteLog, logs, user}) => {
         <h1>Profile</h1>
         <Link to=":userId/logs/newlog">New Log</Link> 
         <UserData user={user} />
-        <UserLogs handleDeleteLog={handleDeleteLog} logs={logs} />
+        <UserLogs handleDeleteLog={handleDeleteLog}logs={logs} />
 
       </main>
     );

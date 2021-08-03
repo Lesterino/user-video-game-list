@@ -25,7 +25,12 @@ function App() {
       const games = await gamesAPI.getAll();
       setGames(games);
     };
+    // const getLogs = async () => {
+    //   const logs = await logsAPI.getAll();
+    //   setLogs(logs);
+    // }
     getGames();
+    // getLogs();
   }, []);
 
   useEffect(() => {
@@ -78,7 +83,7 @@ function App() {
             <Route exact path="/edit">
               <EditGamePage handleUpdateGame={handleUpdateGame} />
             </Route>
-            <Route path="/user/">
+            <Route path="/user">
               <UserProfilePage
                 handleDeleteLog={handleDeleteLog}
                 user={user}
