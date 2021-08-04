@@ -24,7 +24,7 @@ const LogListItem = ({ handleDeleteLog, logItem }) => {
                   state: { logItem },
                 }}
               >
-                &nbsp;Edit
+                &nbsp;Edit {logItem._id}
               </Link>
               &nbsp;
               <button onClick={() => handleDeleteLog(logItem._id)}>

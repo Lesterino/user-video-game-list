@@ -17,10 +17,11 @@ import * as logsAPI from "../../utilities/logs-api";
 function App() {
   const [user, setUser] = useState(getUser());
   const [games, setGames] = useState([]);
+  
   const [logs, setLogs] = useState([]);
-
+  
   const history = useHistory();
-
+  
   useEffect(() => {
     const getGames = async () => {
       const games = await gamesAPI.getAll();
@@ -29,15 +30,16 @@ function App() {
     };
     getGames();
   }, []);
+  
 
-  // useEffect(() => {
-  //   const getLogs = async () => {
-  //     const logs = await logsAPI.getAll();
-  //     console.log('logs state: ', logs);
-  //     setLogs(logs);
-  //   };
-  //   getLogs();
-  // }, []);
+  useEffect(() => {
+    const getLogs = async () => {
+      const logs = await logsAPI.getAll(user._id);
+      console.log('logs state: ', logs);
+      setLogs(logs);
+    };
+    getLogs();
+  }, []);
 
   useEffect(() => {
     history.push("/games");
@@ -54,7 +56,6 @@ function App() {
     const newGamesArray = games.map((g) =>
       g._id === updatedGame._id ? updatedGame : g
     );
-    console.log(newGamesArray);
     setGames(newGamesArray);
   };
 
@@ -64,23 +65,27 @@ function App() {
   };
 
   const handleAddLog = async (newLogData) => {
-    const newLog = await logsAPI.create(newLogData);
+    const newLog = await logsAPI.create(newLogData, user._id);
     setLogs([...logs, newLog]);
   };
 
   const handleUpdateLog = async (updatedLogData) => {
-    console.log('all logs: ', logs);
     console.log('updated log: ', updatedLogData);
     const updatedLog = await logsAPI.update(updatedLogData);
+    console.log(updatedLog);
     const newLogsArray = logs.map((l) => 
-      l._id == updatedLog._id ? updatedLog : l
+      l._id === updatedLog._id ? updatedLog : l
     );
     setLogs(newLogsArray);
   };
 
   const handleDeleteLog = async (id) => {
     await logsAPI.deleteOne(id);
-    setLogs(logs.filter((log) => log._id !== id));
+    setLogs(logs.filter((log) => {
+      if (log._id === id) console.log('found');
+      return log._id !== id
+    }));
+    console.log('setLogs again')
   };
 
   return (

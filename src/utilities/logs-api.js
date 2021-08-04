@@ -1,18 +1,19 @@
 import { sendRequest } from "./sendRequest"
-const BASE_URL = '/api/user/logs'
+const BASE_URL = '/api/user'
 
-export function getAll() {
-    return sendRequest(BASE_URL);
+export function getAll(userId) {
+    return sendRequest(`${BASE_URL}/${userId}/logs`);
   }
   
-  export function create(log) {
-    return sendRequest(`${BASE_URL}`, "POST", log);
+  export function create(log, userId) {
+    return sendRequest(`${BASE_URL}/${userId}/logs`, "POST", log);
   }
   
   export function update(log) {
-    return sendRequest(`${BASE_URL}/${log._id}`, "PUT", log);
+    return sendRequest(`${BASE_URL}/logs/${log._id}`, "PUT", log);
   }
   
-  export function deleteOne(id) {
-    return sendRequest(`${BASE_URL}/${id}`, "DELETE")
+  export function deleteOne(logId) {
+    console.log('hits delete api');
+    return sendRequest(`${BASE_URL}/logs/${logId}`, "DELETE")
   }

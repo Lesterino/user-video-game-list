@@ -2,7 +2,7 @@ const Log = require("../../models/log");
 
 const index = async (req, res) => {
     try {
-      const allLogs = await Log.find();
+      const allLogs = await Log.find({});
       res.json(allLogs);
     } catch {
       console.log("failed to execute index function");
@@ -38,6 +38,7 @@ const index = async (req, res) => {
       const updatedLog = await Log.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
       });
+      console.log('in controller: ', updatedLog)
       res.status(200).json(updatedLog);
     } catch {
       console.log("failed to execute update function");
@@ -48,6 +49,7 @@ const index = async (req, res) => {
   const deleteOne = async (req, res) => {
     try {
       const deletedLog = await Log.findByIdAndRemove(req.params.id);
+      console.log('successful delete')
       res.status(200).json(deletedLog);
     } catch {
       console.log("failed to delete pup");
