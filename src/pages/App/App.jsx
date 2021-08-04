@@ -11,6 +11,7 @@ import EditGamePage from "../Game/EditGamePage/EditGamePage";
 import DetailGamePage from "../Game/DetailGamePage/DetailGamePage";
 import AddLogPage from "../User/AddLogPage/AddLogPage";
 import EditLogPage from "../User/EditLogPage/EditLogPage";
+import DetailLogPage from "../User/DetailLogPage/DetailLogPage";
 import * as gamesAPI from "../../utilities/games-api";
 import * as logsAPI from "../../utilities/logs-api";
 
@@ -124,6 +125,13 @@ function App() {
             </Route>
             <Route exact path="/user/logs/edit">
               <EditLogPage
+                handleUpdateLog={handleUpdateLog}
+                games={games}
+                user={user}
+              />
+            </Route>
+            <Route exact path="/user/logs/details">
+              <DetailLogPage
                 handleUpdateLog={handleUpdateLog}
                 games={games}
                 user={user}

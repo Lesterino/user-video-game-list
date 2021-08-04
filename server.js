@@ -26,8 +26,6 @@ app.listen(port, function() {
   console.log(`Express app running on port ${port}`)
 });
 
-// Put API routes here, before the "catch all" route
-
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
