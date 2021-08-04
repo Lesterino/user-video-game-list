@@ -8,6 +8,7 @@ const LogListItem = ({ handleDeleteLog, logItem }) => {
             Title: {logItem.game} <br />
             Rating: {logItem.rating} <br />
             Review: {logItem.review} <br />
+            Author ID: {logItem.user} <br />
             <div>
                 
               <Link
@@ -24,7 +25,7 @@ const LogListItem = ({ handleDeleteLog, logItem }) => {
                   state: { logItem },
                 }}
               >
-                &nbsp;Edit {logItem._id}
+                &nbsp;Edit 
               </Link>
               &nbsp;
               <button onClick={() => handleDeleteLog(logItem._id)}>
