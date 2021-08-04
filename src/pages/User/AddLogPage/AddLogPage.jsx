@@ -5,7 +5,7 @@ const ratingArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 const AddLogPage = ({ handleAddLog, games, user }) => {
   const [invalidForm, setValidForm] = useState(true);
   const [newLog, setNewLog] = useState({
-    game: games[0].title,
+    game: '',
     rating: "1",
     review: "",
     user: user,

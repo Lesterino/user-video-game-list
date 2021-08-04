@@ -10,7 +10,7 @@ const GameListItem = ({ gameItem, handleDeleteGame }) => {
           <div>
             <Link
               to={{
-                pathname: "/details",
+                pathname: "/game-details",
                 state: { gameItem },
               }}
             >

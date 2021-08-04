@@ -1,9 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+const genreEnum = [
+  "Action",
+  "Adventure",
+  "RPG",
+  "Simulation",
+  "Strategy",
+  "Sports",
+  "MMO",
+];
+
 const EditGamePage = ({ handleUpdateGame }) => {
   const location = useLocation();
-  
+
   const [invalidForm, setValidForm] = useState(true);
   const [editedGame, setEditedGame] = useState(location.state.gameItem);
 
@@ -18,17 +28,10 @@ const EditGamePage = ({ handleUpdateGame }) => {
     handleUpdateGame(editedGame);
   };
 
-  const handleChangeInput = (e) => {
+  const handleChange = (e) => {
     setEditedGame({
       ...editedGame,
-      [e.target.title]: e.target.value,
-    });
-  };
-
-  const handleChangeSelect = (e) => {
-    setEditedGame({
-      ...editedGame,
-      genre: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -39,29 +42,19 @@ const EditGamePage = ({ handleUpdateGame }) => {
         <div>
           <label>Game Title</label>
           <input
-            title="title"
+            name="title"
             value={editedGame.title}
-            onChange={handleChangeInput}
+            onChange={handleChange}
             required
           />
         </div>
         <div>
           <label>Genre</label>
-          <select
-            genre="genre"
-            value={editedGame.genre}
-            onChange={handleChangeSelect}
-          >
-            {/* {genreEnum.forEach((genre) => {
-              <option value={genre}>{genre}</option>
-            })}; */}
-            <option value="Action">Action</option>;
-            <option value="Adventure">Adventure</option>;
-            <option value="RPG">RPG</option>;
-            <option value="Simulation">Simulation</option>;
-            <option value="Strategy">Strategy</option>;
-            <option value="Sports">Sports</option>;
-            <option value="MMO">MMO</option>;
+          <select name="genre" value={editedGame.genre} onChange={handleChange}>
+            {genreEnum.map((genre) => {
+              return <option value={genre}>{genre}</option>;
+            })}
+            ;
           </select>
         </div>
         <button type="submit" disabled={invalidForm}>

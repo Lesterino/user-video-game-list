@@ -6,8 +6,9 @@ const UserProfilePage = ({ handleDeleteLog, logs, user }) => {
   return (
     <main>
       <h1>Profile</h1>
-      <Link to="user/logs/newlog">New Log</Link>
       <UserData user={user} />
+      <h2> Logs </h2>
+      <Link to="user/logs/newlog">New Log</Link> <br /> <br />
       <UserLogs handleDeleteLog={handleDeleteLog} logs={logs} user={user} />
     </main>
   );

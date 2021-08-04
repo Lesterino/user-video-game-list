@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const ratingArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
@@ -70,6 +70,8 @@ const EditLogPage = ({ handleUpdateLog, games }) => {
         <button type="submit" disabled={invalidForm}>
           EDIT LOG
         </button>
+        &nbsp;&nbsp;
+        <Link to="/user">CANCEL</Link>
       </form>
     </>
   );
