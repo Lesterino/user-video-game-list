@@ -65,7 +65,7 @@ function App() {
   };
 
   const handleAddLog = async (newLogData) => {
-    const newLog = await logsAPI.create(newLogData, user._id);
+    const newLog = await logsAPI.create(newLogData);
     setLogs([...logs, newLog]);
   };
 
@@ -81,10 +81,12 @@ function App() {
 
   const handleDeleteLog = async (id) => {
     await logsAPI.deleteOne(id);
-    setLogs(logs.filter((log) => {
+    const newLogs = logs.filter((log) => {
       if (log._id === id) console.log('found');
       return log._id !== id
-    }));
+    });
+    console.log(newLogs);
+    setLogs(newLogs);
     console.log('setLogs again')
   };
 
