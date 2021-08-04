@@ -2,7 +2,7 @@ const Log = require("../../models/log");
 
 const index = async (req, res) => {
     try {
-      const allLogs = await Log.find({});
+      const allLogs = await Log.find();
       res.json(allLogs);
     } catch {
       console.log("failed to execute index function");
@@ -24,6 +24,7 @@ const index = async (req, res) => {
     try {
       // req.body.user = req.user
       const newLog = await Log.create(req.body);
+      console.log(newLog);
       res.status(201).json(newLog);
     } catch (err) {
       console.log(err);
@@ -52,7 +53,7 @@ const index = async (req, res) => {
       console.log("failed to delete pup");
       res.status(400);
     }
-  }
+  };
   
   module.exports = {
     create,

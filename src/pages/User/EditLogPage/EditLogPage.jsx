@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const ratingArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
-const EditLogPage = ({ handleUpdateLog, games, user }) => {
+const EditLogPage = ({ handleUpdateLog, games }) => {
   const location = useLocation();
 
   const [invalidForm, setValidForm] = useState(true);

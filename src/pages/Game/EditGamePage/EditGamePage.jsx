@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const EditGamePage = ({ handleUpdateGame }) => {
   const location = useLocation();
-
+  console.log(location.state.logItem);
   const [invalidForm, setValidForm] = useState(true);
   const [editedGame, setEditedGame] = useState(location.state.gameItem);
 

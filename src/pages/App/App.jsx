@@ -30,14 +30,14 @@ function App() {
     getGames();
   }, []);
 
-  useEffect(() => {
-    const getLogs = async () => {
-      const logs = await logsAPI.getAll();
-      console.log('logs state:', games);
-      setLogs(logs);
-    };
-    getLogs();
-  }, []);
+  // useEffect(() => {
+  //   const getLogs = async () => {
+  //     const logs = await logsAPI.getAll();
+  //     console.log('logs state: ', logs);
+  //     setLogs(logs);
+  //   };
+  //   getLogs();
+  // }, []);
 
   useEffect(() => {
     history.push("/games");
@@ -72,9 +72,9 @@ function App() {
     console.log('all logs: ', logs);
     console.log('updated log: ', updatedLogData);
     const updatedLog = await logsAPI.update(updatedLogData);
-    const newLogsArray = logs.map((l) => {
-      return l._id === updatedLog._id ? updatedLog : l
-    });
+    const newLogsArray = logs.map((l) => 
+      l._id == updatedLog._id ? updatedLog : l
+    );
     setLogs(newLogsArray);
   };
 
