@@ -16,18 +16,19 @@ const LogListItem = ({ handleDeleteLog, logItem }) => {
                   state: { logItem },
                 }}
               >
-                Details
+                <button>Details</button>
               </Link>
+              &nbsp;
               <Link
                 to={{
                   pathname: "/user/logs/edit",
                   state: { logItem },
                 }}
               >
-                &nbsp;Edit 
+                <button>Edit</button> 
               </Link>
               &nbsp;
-              <button onClick={() => handleDeleteLog(logItem._id)}>
+              <button className="delete" onClick={() => handleDeleteLog(logItem._id)}>
                 Delete
               </button>
             </div>

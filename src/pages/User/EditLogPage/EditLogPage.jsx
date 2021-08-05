@@ -60,7 +60,8 @@ const EditLogPage = ({ handleUpdateLog, games }) => {
         </div>
         <div>
           <label>Review:</label>
-          <input
+          <textarea
+          className="review-input-box"
             name="review"
             value={editedLog.review}
             onChange={handleChange}
@@ -71,7 +72,7 @@ const EditLogPage = ({ handleUpdateLog, games }) => {
           EDIT LOG
         </button>
         &nbsp;&nbsp;
-        <Link to="/user">CANCEL</Link>
+        <Link to="/user"><button className="delete">CANCEL</button></Link>
       </form>
     </>
   );

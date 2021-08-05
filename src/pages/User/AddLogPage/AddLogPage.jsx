@@ -62,7 +62,8 @@ const AddLogPage = ({ handleAddLog, games, user }) => {
         </div>
         <div>
           <label>Review:</label>
-          <input
+          <textarea
+            className="review-input-box"
             name="review"
             value={newLog.review}
             onChange={handleChange}

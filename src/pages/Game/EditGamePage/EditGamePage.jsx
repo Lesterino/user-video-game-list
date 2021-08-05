@@ -61,7 +61,7 @@ const EditGamePage = ({ handleUpdateGame }) => {
           SAVE GAME
         </button>
         &nbsp;&nbsp;
-        <Link to="/">CANCEL</Link>
+        <Link to="/games"><button className="delete">CANCEL</button></Link>
       </form>
     </>
   );

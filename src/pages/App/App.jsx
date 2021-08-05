@@ -26,24 +26,22 @@ function App() {
   useEffect(() => {
     const getGames = async () => {
       const games = await gamesAPI.getAll();
-      console.log('games state:', games);
       setGames(games);
     };
     getGames();
   }, []);
   
-
+  
   useEffect(() => {
     const getLogs = async () => {
-      const logs = await logsAPI.getAll(user._id);
-      console.log('logs state: ', logs);
+      const logs = await logsAPI.getAll();
       setLogs(logs);
     };
     getLogs();
   }, []);
 
   useEffect(() => {
-    history.push("/games");
+    history.push("/");
   }, [games, history]);
 
 
@@ -71,9 +69,7 @@ function App() {
   };
 
   const handleUpdateLog = async (updatedLogData) => {
-    console.log('updated log: ', updatedLogData);
     const updatedLog = await logsAPI.update(updatedLogData);
-    console.log(updatedLog);
     const newLogsArray = logs.map((l) => 
       l._id === updatedLog._id ? updatedLog : l
     );
@@ -83,19 +79,20 @@ function App() {
   const handleDeleteLog = async (id) => {
     await logsAPI.deleteOne(id);
     const newLogs = logs.filter((log) => {
-      if (log._id === id) console.log('found');
       return log._id !== id
     });
     console.log(newLogs);
     setLogs(newLogs);
-    console.log('setLogs again')
   };
 
   return (
     <main className="App">
       {user ? (
-        <>
+        <main className="container">
+        <div className="nav">
           <NavBar user={user} setUser={setUser} />
+        </div>
+        <div>
           <Switch>
             <Route path="/games/new">
               <AddGamePage handleAddGame={handleAddGame} />
@@ -138,7 +135,8 @@ function App() {
               />
             </Route>
           </Switch>
-        </>
+          </div>
+        </main>
       ) : (
         <AuthPage setUser={setUser} />
       )}

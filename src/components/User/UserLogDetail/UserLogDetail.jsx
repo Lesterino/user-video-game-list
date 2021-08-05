@@ -14,7 +14,7 @@ const UserLogDetail = ({log}) => {
             </div>
             <hr />
 			<div>
-				<Link to='/user'>RETURN TO LIST</Link>
+				<Link to='/user'><button>RETURN TO LIST</button></Link>
 			</div>
 		</div>
     )

@@ -18,9 +18,33 @@ code {
 	--tan-2: #e7e2dd;
 	--tan-3: #e2d9d1;
 	--tan-4: #d3c1ae;
-	--orange: #f67f00;
+	--orange1: #f67f00;
 	--text-light: #968c84;
 	--text-dark: #615954;
+
+  --gamer-brown: #54494B;
+  --gamer-white: #F1F7ED;
+  --gamer-green: #91C7B1;
+  --gamer-red: #B33951;
+  --gamer-yellow: #E3D081;
+
+  --five: #5D4E50;
+  --four: #826C7F;
+  --three: #A88FAC;
+  --two: #D4B2D8;
+  --one: #EFCEFA;
+
+  --deep-blue: #3D5A80;
+  --light-blue: #98C1D9;
+  --light-cyan: #E0FBFC;
+  --orange-2: #EE6C4D;
+  --gunmetal: #293241;
+
+  --orange: #FE4A49;
+  --pacific-blue: #2AB7CA;
+  --yellow: #FED766;
+  --grey: #E6E6EA;
+  --white: #F4F4F8;
 }
 
 *,
@@ -36,9 +60,33 @@ body {
 		'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background-color: var(--tan-4);
+	background-color: var(--white);
 	padding: 2vmin;
 	height: 100vh;
+}
+
+.newBtn {
+  background-color: var(--pacific-blue);
+  border: 0.1vmin solid var(--deep-blue);
+}
+
+.delete {
+  color: black;
+  background-color: var(--orange);
+}
+
+.gamesList {
+  color: var(--gunmetal);
+}
+
+.review-input-box {
+  height: 100px;
+  width: 200px;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 100px 1fr;
 }
 
 code {
@@ -129,20 +177,20 @@ input {
 }
 
 input:focus {
-	border-color: var(--orange);
+	border-color: var(--five);
 }
 
 button,
 a.button {
 	margin: 1vmin;
 	padding: 1vmin;
-	color: var(--white);
-	background-color: var(--orange);
+	color: var(--gunmetal);
+	background-color: var(--yellow);
 	font-size: 2vmin;
 	font-weight: bold;
 	text-decoration: none;
 	text-align: center;
-	border: 0.1vmin solid var(--tan-2);
+	border: 0.1vmin solid var(--orange);
 	border-radius: 0.5vmin;
 	outline: none;
 	cursor: pointer;
