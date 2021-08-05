@@ -33,7 +33,6 @@ const show = async (req, res) => {
       const user = await User.findById(req.params.id);
       res.json(user);
     } catch {
-      console.log("failed to execute show function");
       res.status(400);
     }
   };

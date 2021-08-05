@@ -15,7 +15,7 @@ const GameDetail = ({ game }) => {
             </div>
             <hr />
 			<div>
-				<Link to='/'>RETURN TO LIST</Link>
+				<Link to='/games'>RETURN TO LIST</Link>
 			</div>
 		</div>
 	);

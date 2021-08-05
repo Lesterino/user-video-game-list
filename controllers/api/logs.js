@@ -5,7 +5,6 @@ const index = async (req, res) => {
     const allLogs = await Log.find({});
     res.json(allLogs);
   } catch {
-    console.log("failed to execute index function");
     res.status(400);
   }
 };
@@ -15,7 +14,6 @@ const show = async (req, res) => {
     const log = await Log.findById(req.params.logId);
     res.json(log);
   } catch {
-    console.log("failed to execute show function");
     res.status(400);
   }
 };
@@ -26,7 +24,6 @@ const create = async (req, res) => {
     console.log(newLog);
     res.status(201).json(newLog);
   } catch {
-    console.log("failed to execute create function");
     res.status(400);
   }
 };
@@ -38,7 +35,6 @@ const update = async (req, res) => {
     });
     res.status(200).json(updatedLog);
   } catch {
-    console.log("failed to execute update function");
     res.status(400);
   }
 };
@@ -48,7 +44,6 @@ const deleteOne = async (req, res) => {
      const deletedLog = await Log.findByIdAndRemove(req.params.logId);
     res.status(200).json(deletedLog);
   } catch {
-    console.log("failed to delete pup");
     res.status(400);
   }
 };
