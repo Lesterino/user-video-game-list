@@ -45,7 +45,7 @@ function App() {
   }, [games, history]);
 
   useEffect(() => {
-    history.push("/user");
+    history.push("/logs");
   }, [logs, history]);
 
   const handleAddGame = async (newGameData) => {

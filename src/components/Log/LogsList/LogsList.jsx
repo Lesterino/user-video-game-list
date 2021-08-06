@@ -1,12 +1,9 @@
-import UserLogItem from "../../User/UserLogItem/UserLogItem";
+import LogItem from "../LogItem/LogItem";
 
 const LogsList = ({ logs, user }) => {
   const logsList = logs.map((log) => {
       return (
-      // {if (user._id === log.user) {
-      //   <p>{user.name}</p>
-      // }}
-        <UserLogItem
+        <LogItem
           key={log._id}
           logItem={log}
         />
