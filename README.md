@@ -18,5 +18,5 @@ Things to add:
 - Nicer looking styling
 - Better detailed "detail" pages
 - Usernames tied to the author for "all logs page"
-- Timestamps for logged drinks and places
+- Timestamps for logs
 - Average rating field for video games
