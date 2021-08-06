@@ -7,7 +7,7 @@ to have users create new items in the database that can be added to their log. P
 <img src="https://i.imgur.com/WTRb0Zy.png" />
 <img src="https://i.imgur.com/JdQmPPl.png" />
 
-Technologies Used: Mongoose, Express, React, Node.js, HTML, CSS,
+Technologies Used: Mongoose, Express, React, Node.js, HTML, CSS
 
 [Link to App](https://video-game-logger.herokuapp.com/)
 
