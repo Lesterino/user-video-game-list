@@ -4,6 +4,7 @@ const UserLogDetail = ({log}) => {
     return(
         <div>
 			<div>
+			<div>
 				<h3>{log.game}</h3>
 			</div>
 			<div>
@@ -12,6 +13,7 @@ const UserLogDetail = ({log}) => {
             <div>
                 Review: {log.review}
             </div>
+			</div>
             <hr />
 			<div>
 				<Link to='/user'><button>RETURN TO LIST</button></Link>
