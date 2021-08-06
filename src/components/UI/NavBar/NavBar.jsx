@@ -7,9 +7,11 @@ const NavBar = ({ user, setUser }) => {
     setUser(null);
   };
   return (
-    <nav>
-      Welcome, {user.name} &nbsp; | &nbsp;
+    <nav className="nav-content">
+      Welcome, <b>{user.name}</b> &nbsp; | &nbsp;
       <Link to="/games">All Games</Link>
+      &nbsp; | &nbsp;
+      <Link to="/logs">All Logs</Link>
       &nbsp; | &nbsp;
       <Link to="/user">Profile</Link>
       &nbsp; | &nbsp;

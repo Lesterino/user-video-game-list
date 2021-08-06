@@ -12,17 +12,18 @@ import DetailGamePage from "../Game/DetailGamePage/DetailGamePage";
 import AddLogPage from "../User/AddLogPage/AddLogPage";
 import EditLogPage from "../User/EditLogPage/EditLogPage";
 import DetailLogPage from "../User/DetailLogPage/DetailLogPage";
+import AllLogsPage from "../Log/AllLogsPage/AllLogsPage";
 import * as gamesAPI from "../../utilities/games-api";
 import * as logsAPI from "../../utilities/logs-api";
 
 function App() {
   const [user, setUser] = useState(getUser());
+  
   const [games, setGames] = useState([]);
-  
   const [logs, setLogs] = useState([]);
-  
+
   const history = useHistory();
-  
+
   useEffect(() => {
     const getGames = async () => {
       const games = await gamesAPI.getAll();
@@ -30,8 +31,7 @@ function App() {
     };
     getGames();
   }, []);
-  
-  
+
   useEffect(() => {
     const getLogs = async () => {
       const logs = await logsAPI.getAll();
@@ -41,9 +41,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    history.push("/");
+    history.push("/games");
   }, [games, history]);
 
+  useEffect(() => {
+    history.push("/user");
+  }, [logs, history]);
 
   const handleAddGame = async (newGameData) => {
     const newGame = await gamesAPI.create(newGameData);
@@ -70,7 +73,7 @@ function App() {
 
   const handleUpdateLog = async (updatedLogData) => {
     const updatedLog = await logsAPI.update(updatedLogData);
-    const newLogsArray = logs.map((l) => 
+    const newLogsArray = logs.map((l) =>
       l._id === updatedLog._id ? updatedLog : l
     );
     setLogs(newLogsArray);
@@ -79,7 +82,7 @@ function App() {
   const handleDeleteLog = async (id) => {
     await logsAPI.deleteOne(id);
     const newLogs = logs.filter((log) => {
-      return log._id !== id
+      return log._id !== id;
     });
     console.log(newLogs);
     setLogs(newLogs);
@@ -89,52 +92,58 @@ function App() {
     <main className="App">
       {user ? (
         <main className="container">
-        <div className="nav">
-          <NavBar user={user} setUser={setUser} />
-        </div>
-        <div>
-          <Switch>
-            <Route path="/games/new">
-              <AddGamePage handleAddGame={handleAddGame} />
-            </Route>
-            <Route path="/games">
-              <AllGamesPage games={games} handleDeleteGame={handleDeleteGame} />
-            </Route>
-            <Route exact path="/game-details">
-              <DetailGamePage />
-            </Route>
-            <Route exact path="/edit">
-              <EditGamePage handleUpdateGame={handleUpdateGame} />
-            </Route>
-            <Route exact path="/user">
-              <UserProfilePage
-                handleDeleteLog={handleDeleteLog}
-                user={user}
-                logs={logs}
-              />
-            </Route>
-            <Route exact path="/user/logs/newlog">
-              <AddLogPage
-                handleAddLog={handleAddLog}
-                games={games}
-                user={user}
-              />
-            </Route>
-            <Route exact path="/user/logs/edit">
-              <EditLogPage
-                handleUpdateLog={handleUpdateLog}
-                games={games}
-                user={user}
-              />
-            </Route>
-            <Route exact path="/user/logs/details">
-              <DetailLogPage
-                handleUpdateLog={handleUpdateLog}
-                games={games}
-                user={user}
-              />
-            </Route>
-          </Switch>
+          <div className="nav">
+            <NavBar user={user} setUser={setUser} />
+          </div>
+          <div>
+            <Switch>
+              <Route path="/games/new">
+                <AddGamePage handleAddGame={handleAddGame} />
+              </Route>
+              <Route path="/games">
+                <AllGamesPage
+                  games={games}
+                  handleDeleteGame={handleDeleteGame}
+                />
+              </Route>
+              <Route exact path="/game-details">
+                <DetailGamePage />
+              </Route>
+              <Route exact path="/edit">
+                <EditGamePage handleUpdateGame={handleUpdateGame} />
+              </Route>
+              <Route exact path="/user">
+                <UserProfilePage
+                  handleDeleteLog={handleDeleteLog}
+                  user={user}
+                  logs={logs}
+                />
+              </Route>
+              <Route exact path="/user/logs/newlog">
+                <AddLogPage
+                  handleAddLog={handleAddLog}
+                  games={games}
+                  user={user}
+                />
+              </Route>
+              <Route exact path="/logs">
+                <AllLogsPage logs={logs} />
+              </Route>
+              <Route exact path="/user/logs/edit">
+                <EditLogPage
+                  handleUpdateLog={handleUpdateLog}
+                  games={games}
+                  user={user}
+                />
+              </Route>
+              <Route exact path="/user/logs/details">
+                <DetailLogPage
+                  handleUpdateLog={handleUpdateLog}
+                  games={games}
+                  user={user}
+                />
+              </Route>
+            </Switch>
           </div>
         </main>
       ) : (

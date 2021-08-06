@@ -21,7 +21,6 @@ const show = async (req, res) => {
 const create = async (req, res) => {
   try {
     const newLog = await Log.create(req.body);
-    console.log(newLog);
     res.status(201).json(newLog);
   } catch {
     res.status(400);
