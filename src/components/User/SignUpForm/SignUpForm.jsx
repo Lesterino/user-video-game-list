@@ -19,7 +19,6 @@ export default class SignUpForm extends Component {
   };
 
   handleSubmit = async (evt) => {
-    console.log('hit handleSubmit');
     evt.preventDefault();
     try {
       const formData = { ...this.state };
@@ -71,7 +70,7 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
-            <button type="submit" disabled={disable}>
+            <button className="authpage-btn" type="submit" disabled={disable}>
               SIGN UP
             </button>
           </form>

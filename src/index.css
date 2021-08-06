@@ -1,68 +1,68 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 :root {
-	--white: #ffffff;
-	--tan-1: #fbf9f6;
-	--tan-2: #e7e2dd;
-	--tan-3: #e2d9d1;
-	--tan-4: #d3c1ae;
-	--orange1: #f67f00;
-	--text-light: #968c84;
-	--text-dark: #615954;
+  --white: #ffffff;
+  --tan-1: #fbf9f6;
+  --tan-2: #e7e2dd;
+  --tan-3: #e2d9d1;
+  --tan-4: #d3c1ae;
+  --orange1: #f67f00;
+  --text-light: #968c84;
+  --text-dark: #615954;
 
-  --gamer-brown: #54494B;
-  --gamer-white: #F1F7ED;
-  --gamer-green: #91C7B1;
-  --gamer-red: #B33951;
-  --gamer-yellow: #E3D081;
+  --gamer-brown: #54494b;
+  --gamer-white: #f1f7ed;
+  --gamer-green: #91c7b1;
+  --gamer-red: #b33951;
+  --gamer-yellow: #e3d081;
 
-  --five: #5D4E50;
-  --four: #826C7F;
-  --three: #A88FAC;
-  --two: #D4B2D8;
-  --one: #EFCEFA;
+  --five: #5d4e50;
+  --four: #826c7f;
+  --three: #a88fac;
+  --two: #d4b2d8;
+  --one: #efcefa;
 
-  --deep-blue: #3D5A80;
-  --light-blue: #98C1D9;
-  --light-cyan: #E0FBFC;
-  --orange-2: #EE6C4D;
+  --deep-blue: #3d5a80;
+  --light-blue: #98c1d9;
+  --light-cyan: #e0fbfc;
+  --orange-2: #ee6c4d;
   --gunmetal: #293241;
 
-  --orange: #FE4A49;
-  --pacific-blue: #2AB7CA;
-  --yellow: #FED766;
-  --grey: #E6E6EA;
-  --white: #F4F4F8;
+  --orange: #fe4a49;
+  --pacific-blue: #2ab7ca;
+  --yellow: #fed766;
+  --grey: #e6e6ea;
+  --white: #f4f4f8;
 }
 
 *,
 *:before,
 *:after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-		'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-		'Helvetica Neue', sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	background-color: var(--white);
-	padding: 2vmin;
-	height: 100vh;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--white);
+  padding: 2vmin;
+  height: 100vh;
 }
 
 .nav-content {
@@ -77,6 +77,12 @@ body {
   background-color: var(--pacific-blue);
   border: 0.1vmin solid var(--deep-blue);
   font-size: 32px;
+}
+
+.authpage-btn {
+	background-color: var(--pacific-blue);
+  border: 0.1vmin solid var(--deep-blue);
+  font-size: 24px;
 }
 
 .delete {
@@ -100,13 +106,18 @@ body {
 
 .card {
   /* Add shadows to create the "card" effect */
-  width: 100%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  align-items: center;
+  width: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
+  margin: auto;
+  width: 40%;
+  border: 5px solid var(--gamer-green);
+  padding: 10px;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .card-container {
@@ -118,129 +129,131 @@ img {
 }
 
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-		monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 #root {
-	height: 100%;
+  height: 100%;
 }
 
 .align-ctr {
-	text-align: center;
+  text-align: center;
 }
 
 .align-rt {
-	text-align: right;
+  text-align: right;
 }
 
 .smaller {
-	font-size: smaller;
+  font-size: smaller;
 }
 
 .flex-ctr-ctr {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .flex-col {
-	flex-direction: column;
+  flex-direction: column;
 }
 
 .flex-j-end {
-	justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .scroll-y {
-	overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 .section-heading {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	background-color: var(--tan-1);
-	color: var(--text-dark);
-	border: 0.1vmin solid var(--tan-3);
-	border-radius: 1vmin;
-	padding: 0.6vmin;
-	text-align: center;
-	font-size: 2vmin;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--tan-1);
+  color: var(--text-dark);
+  border: 0.1vmin solid var(--tan-3);
+  border-radius: 1vmin;
+  padding: 0.6vmin;
+  text-align: center;
+  font-size: 2vmin;
 }
 
 .form-container {
-	padding: 3vmin;
-	background-color: var(--tan-1);
-	border: 0.1vmin solid var(--tan-3);
-	border-radius: 1vmin;
+	width: 40%;
+	margin: auto;
+  padding: 1vmin;
+  background-color: var(--light-cyan);
+  border: 0.1vmin solid var(--gamer-green);
+  border-radius: 1vmin;
 }
 
 p.error-message {
-	color: var(--orange);
-	text-align: center;
+  color: var(--orange);
+  text-align: center;
 }
 
 form {
-	display: grid;
-	grid-template-columns: 1fr 3fr;
-	gap: 1.25vmin;
-	color: var(--text-light);
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1.25vmin;
+  color: var(--text-light);
 }
 
 label {
-	font-size: 2vmin;
-	display: flex;
-	align-items: center;
+  font-size: 2vmin;
+  display: flex;
+  align-items: center;
 }
 
 input {
-	padding: 1vmin;
-	font-size: 2vmin;
-	border: 0.1vmin solid var(--tan-3);
-	border-radius: 0.5vmin;
-	color: var(--text-dark);
-	background-image: none !important; /* prevent lastpass */
-	outline: none;
+  padding: 1vmin;
+  font-size: 2vmin;
+  border: 0.1vmin solid var(--tan-3);
+  border-radius: 0.5vmin;
+  color: var(--text-dark);
+  background-image: none !important; /* prevent lastpass */
+  outline: none;
 }
 
 input:focus {
-	border-color: var(--five);
+  border-color: var(--five);
 }
 
 button,
 a.button {
-	margin: 1vmin;
-	padding: 1vmin;
-	color: var(--gunmetal);
-	background-color: var(--yellow);
-	font-size: 12px;
-	font-weight: bold;
-	text-decoration: none;
-	text-align: center;
-	border: 0.1vmin solid var(--orange);
-	border-radius: 0.5vmin;
-	outline: none;
-	cursor: pointer;
+  margin: 1vmin;
+  padding: 1vmin;
+  color: var(--gunmetal);
+  background-color: var(--yellow);
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border: 0.1vmin solid var(--gunmetal);
+  border-radius: 0.5vmin;
+  outline: none;
+  cursor: pointer;
 }
 
 button.btn-sm {
-	font-size: 1.5vmin;
-	padding: 0.6vmin 0.8vmin;
+  font-size: 1.5vmin;
+  padding: 0.6vmin 0.8vmin;
 }
 
 button.btn-xs {
-	font-size: 1vmin;
-	padding: 0.4vmin 0.5vmin;
+  font-size: 1vmin;
+  padding: 0.4vmin 0.5vmin;
 }
 
 button:disabled,
-form:invalid button[type='submit'] {
-	cursor: not-allowed;
-	background-color: var(--tan-4);
+form:invalid button[type="submit"] {
+  cursor: not-allowed;
+  background-color: var(--gamer-white);
 }
 
-button[type='submit'] {
-	grid-column: span 2;
-	margin: 1vmin 0 0;
+button[type="submit"] {
+  grid-column: span 2;
+  margin: 1vmin 0 0;
 }
