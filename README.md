@@ -10,7 +10,10 @@ to have users create new items in the database that can be added to their log. P
 Technologies Used: Mongoose, Express, React, Node.js, HTML, CSS,
 
 [Link to App](https://video-game-logger.herokuapp.com/)
+
 [Trello planning board](https://trello.com/b/nIeCpAI1/video-game-logger)
+
+
 Things to add:
 - Nicer looking styling
 - Better detailed "detail" pages
