@@ -1,4 +1,4 @@
-# video game logger
+# Video Game Logger
 MERN app that allows users to log their played video games. Includes signup/login functionality having different user profile's. Includes ability
 to have users create new items in the database that can be added to their log. Prompts user to leave a rating and review for all games logged.
 
